@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -26,9 +26,12 @@ const Admin = () => {
       );
 
       if (response.status === 201) {
-        Cookies.set('token', response.data.token, { expires: 7, secure: true })
+        Cookies.set("Admintoken", response.data.token, {
+          expires: 7,
+          secure: true,
+        });
         localStorage.setItem("Email", loginData.email);
-        localStorage.setItem('Name', response.data.name)
+        localStorage.setItem("Name", response.data.name);
         toast.success(response.data.message);
         setTimeout(() => {
           navigate("/admindashboard/user");

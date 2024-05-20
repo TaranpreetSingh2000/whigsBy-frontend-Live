@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 
 const AdminProtected = (props) => {
   const [isAuth, setIsAuth] = useState(false);
@@ -8,11 +8,11 @@ const AdminProtected = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLogin = Cookies.get('token');
+    const isLogin = Cookies.get("Admintoken");
     if (isLogin) {
       setIsAuth(true);
     } else {
-      navigate("/admin");
+      navigate("/");
       setIsAuth(false);
     }
   }, [isAuth]);

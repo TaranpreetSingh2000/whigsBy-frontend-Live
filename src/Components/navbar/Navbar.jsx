@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -9,12 +9,8 @@ import { GoHeart } from "react-icons/go";
 import { BsCart2 } from "react-icons/bs";
 import { CartContext } from "../../_context/CartContext";
 import Cart from "../cart/Cart";
-import {
-  getUserCartItems,
-  getUserWishlistItem,
-} from "../../_utils/GlobalApi";
-import Cookies from 'js-cookie'
-
+import { getUserCartItems, getUserWishlistItem } from "../../_utils/GlobalApi";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -29,12 +25,12 @@ const Navbar = () => {
   const name = localStorage.getItem("Name");
   localStorage.setItem("Wishlist", JSON.stringify(wishlist));
   localStorage.setItem("CartItems", JSON.stringify(cart));
-  
+
   useEffect(() => {
     if (email) {
       getCartItem();
       getWishlistItem();
-      setUser(name)
+      setUser(name);
     } else {
       setCart([]);
       setWistlist([]);
@@ -69,8 +65,8 @@ const Navbar = () => {
     });
   };
   useEffect(() => {
-    const isLogin = Cookies.get('token');
-    const isAdminLogin =Cookies.get('token');
+    const isLogin = Cookies.get("token");
+    const isAdminLogin = Cookies.get("Admintoken");
 
     if (isLogin) {
       setIsAuth(true);
@@ -96,24 +92,24 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    Cookies.remove('token');
+    Cookies.remove("token");
     sessionStorage.removeItem("loginEmail");
     localStorage.removeItem("Email");
     localStorage.removeItem("Name");
     setIsMenuOpen(false);
     toast.success("Logout Successfully ");
     setTimeout(() => {
-      navigate("/login");
+      navigate("/");
     }, 1000);
   };
 
   const handleAdminLogout = () => {
-    Cookies.remove('token');
+    Cookies.remove("Admintoken");
     localStorage.removeItem("Email");
     localStorage.removeItem("Name");
     toast.success("Logout Successfully ");
     setTimeout(() => {
-      navigate("/admin");
+      navigate("/");
     }, 1000);
   };
   const toggleMenu = () => {
@@ -193,8 +189,104 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="flex flex-col justify-center items-center">
-            <div className="flex flex-row items-center">
+          {isAuth || isAdminAuth ? (
+            <div className="flex flex-row-reverse items-center gap-2">
+              <div className="flex flex-row items-center">
+                <div className="relative" ref={menuRef}>
+                  <button
+                    className="flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none cursor-pointer"
+                    onClick={toggleMenu}
+                    aria-expanded={isMenuOpen ? "true" : "false"}
+                  >
+                    <FontAwesomeIcon
+                      icon={faUser}
+                      className="rounded-full p-2 m-2 text-blue-800 border border-blue-800"
+                    />
+                  </button>
+
+                  {isMenuOpen && (
+                    <ul className="absolute text-black z-[1000] float-left m-0 w-[150px] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark right-0 mt-2 h-30">
+                      <li>
+                        <a
+                          href="#"
+                          className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                          onClick={toggleMenu}
+                        >
+                          My Profile
+                        </a>
+                      </li>
+
+                      {isAdminAuth ? (
+                        <a
+                          className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 cursor-pointer"
+                          onClick={handleAdminLogout}
+                        >
+                          Logged out Admin
+                        </a>
+                      ) : (
+                        <Link
+                          to="/admin"
+                          className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 cursor-pointer"
+                          onClick={toggleMenu}
+                        >
+                          Login Admin
+                        </Link>
+                      )}
+
+                      <li>
+                        <a
+                          href="#"
+                          className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                          onClick={toggleMenu}
+                        >
+                          Settings
+                        </a>
+                      </li>
+
+                      <li>
+                        {isAuth ? (
+                          <a
+                            href="#"
+                            className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                            onClick={handleLogout}
+                          >
+                            Logout
+                          </a>
+                        ) : (
+                          <Link
+                            to="/login"
+                            className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 cursor-pointer"
+                            onClick={toggleMenu}
+                          >
+                            Login User
+                          </Link>
+                        )}
+                      </li>
+                    </ul>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex gap-4 justify-center items-end cursor-pointer  ">
+                <div
+                  className="flex items-center"
+                  onClick={() => setOpenCart(!openCart)}
+                >
+                  <BsCart2 className="text-2xl cursor-pointer" />
+                  <span className="font-semibold text-md cursor-pointer absolute top-[2.1rem] right-[6.2rem]">
+                    <sup className="border border-orange-600 rounded-3xl p-[0.6px] px-[5px] bg-orange-600 text-white">
+                      {isAuth || isAdminAuth ? cart?.length : 0}
+                    </sup>
+                  </span>
+                </div>
+
+                <div>
+                  <Link to="/wishlist">
+                    <GoHeart className="text-2xl" />
+                  </Link>
+                </div>
+              </div>
+              {openCart && isAuth ? <Cart /> : null}
               {(isAuth || isAdminAuth) && (
                 <div className="profileSection">
                   <ul>
@@ -204,103 +296,17 @@ const Navbar = () => {
                   </ul>
                 </div>
               )}
-
-              <div className="relative" ref={menuRef}>
-                <button
-                  className="flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none cursor-pointer"
-                  onClick={toggleMenu}
-                  aria-expanded={isMenuOpen ? "true" : "false"}
-                >
-                  <FontAwesomeIcon
-                    icon={faUser}
-                    className="rounded-full p-2 m-2 text-blue-800 border border-blue-800"
-                  />
-                </button>
-
-                {isMenuOpen && (
-                  <ul className="absolute text-black z-[1000] float-left m-0 w-[150px] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark right-0 mt-2 h-30">
-                    <li>
-                      <a
-                        href="#"
-                        className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                        onClick={toggleMenu}
-                      >
-                        My Profile
-                      </a>
-                    </li>
-
-                    {isAdminAuth ? (
-                      <a
-                        className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 cursor-pointer"
-                        onClick={handleAdminLogout}
-                      >
-                        Logged out Admin
-                      </a>
-                    ) : (
-                      <Link
-                        to="/admin"
-                        className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 cursor-pointer"
-                        onClick={toggleMenu}
-                      >
-                        Login Admin
-                      </Link>
-                    )}
-
-                    <li>
-                      <a
-                        href="#"
-                        className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                        onClick={toggleMenu}
-                      >
-                        Settings
-                      </a>
-                    </li>
-
-                    <li>
-                      {isAuth ? (
-                        <a
-                          href="#"
-                          className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                          onClick={handleLogout}
-                        >
-                          Logout
-                        </a>
-                      ) : (
-                        <Link
-                          to="/login"
-                          className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 cursor-pointer"
-                          onClick={toggleMenu}
-                        >
-                          Login User
-                        </Link>
-                      )}
-                    </li>
-                  </ul>
-                )}
-              </div>
             </div>
-
-            <div className="flex gap-3 justify-center items-end my-1 cursor-pointer  ">
-              <div
-                className="flex items-center"
-                onClick={() => setOpenCart(!openCart)}
+          ) : (
+            <div className="flex justify-center items-center">
+              <Link
+                to="/login"
+                className="text-black shadow-md font-medium text-sm bg-white hover:bg-[#252e49] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#252e49] focus:ring-opacity-50 rounded-lg px-4 py-2 transition duration-300"
               >
-                <BsCart2 className="text-xl cursor-pointer" />
-                <span className="font-semibold text-md cursor-pointer">
-                  <sup className="border border-[#252e49] rounded-3xl p-[0.6px] px-[5px] bg-[#252e49] text-white">
-                    {isAuth || isAdminAuth ? cart?.length : 0}
-                  </sup>
-                </span>
-              </div>
-
-              <div>
-                <Link to="/wishlist">
-                  <GoHeart className="text-xl" />
-                </Link>
-              </div>
+                Login
+              </Link>
             </div>
-            {openCart && isAuth ? <Cart /> : null}
-          </div>
+          )}
         </div>
       </nav>
     </>
