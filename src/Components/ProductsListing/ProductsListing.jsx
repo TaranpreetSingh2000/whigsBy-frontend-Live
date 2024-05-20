@@ -5,10 +5,6 @@ import FilterProducts from "../filter/FilterProducts";
 const ProductsListing = () => {
   const [category, setCategory] = useState("");
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   return (
     <>
       <div className="flex bg-gray-100 border border-gray-100 max-[700px]:flex-col">
