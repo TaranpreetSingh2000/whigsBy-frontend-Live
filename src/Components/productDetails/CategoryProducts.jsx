@@ -11,7 +11,7 @@ const CategoryProducts = ({ categoryDetails }) => {
         </h3>
 
         {categoryDetails ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3">
             {categoryDetails?.data?.data &&
               categoryDetails?.data?.data.map((product) => (
                 <Link
