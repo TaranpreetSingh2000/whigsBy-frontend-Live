@@ -288,7 +288,7 @@ const Navbar = () => {
               </div>
               {openCart && isAuth ? <Cart /> : null}
               {(isAuth || isAdminAuth) && (
-                <div className="profileSection">
+                <div className="profileSection max-[500px]:hidden">
                   <ul>
                     <li>
                       <strong>{user && `Welcome, ${user}`}</strong>
