@@ -11,15 +11,17 @@ const axiosClient = axios.create({
 const getAllProducts = async () =>
   await axiosClient.get("/products?populate=* &pagination[limit]=25");
 
-const getProductsById = (id) =>
-  axiosClient.get("/products/" + id + "?populate=* &pagination[limit]=100");
+const getProductsById = async (id) =>
+  await axiosClient.get(
+    "/products/" + id + "?populate=* &pagination[limit]=25"
+  );
 
-const getProductsSearchCategory = (query) =>
-  axiosClient.get(
+const getProductsSearchCategory = async (query) =>
+  await axiosClient.get(
     "/products?filters[categories][Name][$containsi]=" + query + "&populate=*"
   );
 
-const getProductsPriceFilter = (min, max, category, rating) => {
+const getProductsPriceFilter = async (min, max, category, rating) => {
   let baseUrl = "/products?";
 
   if (category) {
@@ -37,11 +39,11 @@ const getProductsPriceFilter = (min, max, category, rating) => {
 
   baseUrl += "populate=*";
 
-  return axiosClient.get(baseUrl);
+  return await axiosClient.get(baseUrl);
 };
 
-const getProductsRatingFilter = (rating) =>
-  axiosClient.get(
+const getProductsRatingFilter = async (rating) =>
+  await axiosClient.get(
     "/products?filters[rating][$gte]=" +
       rating +
       "&filters[rating][$lte]=" +
@@ -49,46 +51,47 @@ const getProductsRatingFilter = (rating) =>
       "&populate=*"
   );
 
-const getCategories = () => axiosClient.get("/categories");
+const getCategories = async () => await axiosClient.get("/categories");
 // add to cart function
-const addtoCart = (data) =>
-  axiosClient.post("/carts", data, "&pagination[limit]=100");
+const addtoCart = async (data) =>
+  await axiosClient.post("/carts", data, "&pagination[limit]=100");
 
 // Get user cart items
-const getUserCartItems = (email) =>
-  axiosClient.get(
+const getUserCartItems = async (email) =>
+  await axiosClient.get(
     "/carts?populate[products][populate][0]=image&&filters[email][$eq]=" +
       email +
-      "&pagination[limit]=100"
+      "&pagination[limit]=50"
   );
 
 // delete cartItems
-const deleteCartItems = (id) => axiosClient.delete("/carts/" + id);
+const deleteCartItems = async (id) => await axiosClient.delete("/carts/" + id);
 
 // filter products by categories
 
-const getProductsByCategories = (category) =>
-  axiosClient.get(
+const getProductsByCategories = async (category) =>
+  await axiosClient.get(
     "/products?filters[category][$containsi]=" + category + "&populate=*"
   );
 
 // whishlist Products
 
-const addtoWhistlist = (data) =>
-  axiosClient.post("/whistlists", data, "&pagination[limit]=100");
+const addtoWhistlist = async (data) =>
+  await axiosClient.post("/whistlists", data, "&pagination[limit]=50");
 
 // get wishlist Item
 
-const getUserWishlistItem = (email) =>
-  axiosClient.get(
+const getUserWishlistItem = async (email) =>
+  await axiosClient.get(
     "/whistlists?populate[products][populate][0]=image&&filters[email][$eq]=" +
       email +
-      "&pagination[limit]=100"
+      "&pagination[limit]=25"
   );
 
 // delete wishlist Item
 
-const deleteWishlistItem = (id) => axiosClient.delete("/whistlists/" + id);
+const deleteWishlistItem = async (id) =>
+  await axiosClient.delete("/whistlists/" + id);
 
 const getCustomerLoginId = () =>
   axiosClient.get(
