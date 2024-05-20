@@ -123,7 +123,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white dark:bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+      <nav className="bg-white w-full z-20 top-0 start-0 border-b border-gray-200">
         <div className="flex flex-wrap items-center justify-between mx-auto p-2.5">
           <div>
             {isAuth ? (
@@ -219,7 +219,7 @@ const Navbar = () => {
                 </button>
 
                 {isMenuOpen && (
-                  <ul className="absolute  z-[1000] float-left m-0 w-[150px] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark right-0 mt-2 h-30">
+                  <ul className="absolute text-black z-[1000] float-left m-0 w-[150px] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark right-0 mt-2 h-30">
                     <li>
                       <a
                         href="#"
