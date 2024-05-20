@@ -16,7 +16,6 @@ const Signup = () => {
   const handleChange = (e) => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -33,7 +32,7 @@ const Signup = () => {
         }, 3000);
       }
     } catch (error) {
-      toast.error(response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 
