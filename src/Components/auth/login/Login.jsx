@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "../authStyle/Auth.module.css";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Icon } from "react-icons-kit";
 import { eye } from "react-icons-kit/feather/eye";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
-import Cookies  from "js-cookie";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -32,12 +32,12 @@ const Login = () => {
       );
 
       if (response.status === 201) {
-        Cookies.set('token', response.data.token, { expires: 7, secure: true })
+        Cookies.set("token", response.data.token, { expires: 7, secure: true });
         localStorage.setItem("Email", loginData.email);
-        localStorage.setItem('Name', response.data.name)
+        localStorage.setItem("Name", response.data.name);
         toast.success(response.data.message);
         setTimeout(() => {
-          navigate('/home');
+          navigate("/");
         }, 1000);
       }
     } catch (error) {

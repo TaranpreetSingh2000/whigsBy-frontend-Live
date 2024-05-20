@@ -38,20 +38,19 @@ import ProductsListing from "./Components/ProductsListing/ProductsListing.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Layout />}>
-        <Route path="" element={<Data />} />
+      <Route path="" element={<Layout />}>
+        <Route path="/" element={<Home />} />
         <Route path="signup" element={<Signup />} />
         <Route path="about" element={<AboutUs />} />
         <Route path="category" element={<CategoriesPage />} />
         <Route path="login" element={<Login />} />
         <Route path="admin" element={<Admin />} />
-        <Route path="listing" element={<Protected Component={ProductsListing} />} />
-        <Route path="home" element={<Protected Component={Home} />} />
-
         <Route
-          path="productDetails/:productId"
-          element={<Protected Component={ProductDetails} />}
+          path="listing"
+          element={<Protected Component={ProductsListing} />}
         />
+
+        <Route path="productDetails/:productId" element={<ProductDetails />} />
         <Route
           path="/categoryDetails/:categoryname"
           element={<Protected Component={ShopCategoriesDetails} />}

@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import {  useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { BallTriangle } from "react-loader-spinner";
 import { BsCart2 } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import Breadcrumb from "../breadcrumb/Breadcrumb";
-import {
-  getProductsByCategories,
-} from "../../_utils/GlobalApi";
+import { getProductsByCategories } from "../../_utils/GlobalApi";
 import "react-toastify/dist/ReactToastify.css";
 import CategoryProducts from "./CategoryProducts";
 import useCart from "../hooks/useCart";
@@ -15,12 +13,15 @@ import useWishlist from "../hooks/useWishlist";
 import { BsCartCheckFill } from "react-icons/bs";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 import StarRating from "../ratings/StarRating";
+import Cookies from "js-cookie";
 
 const ProductDetails = () => {
   const pathname = window.location.pathname;
+  const navigate = useNavigate();
   const { productId } = useParams();
   const fetchCart = useCart();
   const fetchWishlist = useWishlist();
+  const [isAuth, setIsAuth] = useState(false);
   const [filterdata, setFilterData] = useState({});
   const [showCards, setShowCards] = useState(false);
   const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
@@ -32,6 +33,15 @@ const ProductDetails = () => {
   const { response, loading, error } = useFetch(
     `https://whigsby-live-server.onrender.com/api/products/${productId}?populate=*`
   );
+
+  useEffect(() => {
+    const isLogin = Cookies.get("token");
+    if (isLogin) {
+      setIsAuth(true);
+    } else {
+      setIsAuth(false);
+    }
+  }, [isAuth]);
 
   const getCateogoryProducts = (category) => {
     getProductsByCategories(category).then((res) => {
@@ -110,17 +120,25 @@ const ProductDetails = () => {
   };
 
   const onAddToCartClick = () => {
-    setIsAddedToCart(true);
-    fetchCart(data, {
-      productData: filterdata?.data?.data,
-    });
+    if (isAuth) {
+      setIsAddedToCart(true);
+      fetchCart(data, {
+        productData: filterdata?.data?.data,
+      });
+    } else {
+      navigate("/login");
+    }
   };
 
   const onAddToWhishlistClick = () => {
-    setIsAddedToWishlist(true);
-    fetchWishlist(data, {
-      productData: filterdata?.data?.data,
-    });
+    if (isAuth) {
+      setIsAddedToWishlist(true);
+      fetchWishlist(data, {
+        productData: filterdata?.data?.data,
+      });
+    } else {
+      navigate("/login");
+    }
   };
 
   return (

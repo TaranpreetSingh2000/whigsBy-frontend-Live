@@ -1,19 +1,31 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   getAllProducts,
   getProductsSearchCategory,
 } from "../../_utils/GlobalApi";
 import { CgSearch } from "react-icons/cg";
 import { CartContext } from "../../_context/CartContext";
+import Cookies from "js-cookie";
 
 const StrapiData = ({ fetchedQuery }) => {
   const location = useLocation();
-  const { hash, pathname, search } = location;
+  const navigate = useNavigate();
+  const { pathname } = location;
   const [data, setData] = useState({});
+  const [isAuth, setIsAuth] = useState(false);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const { priceFilter, initialData } = useContext(CartContext);
+
+  useEffect(() => {
+    const isLogin = Cookies.get("token");
+    if (isLogin) {
+      setIsAuth(true);
+    } else {
+      setIsAuth(false);
+    }
+  }, [isAuth]);
 
   useEffect(() => {
     if (
@@ -54,7 +66,12 @@ const StrapiData = ({ fetchedQuery }) => {
       </div>
     );
   }
-
+  const handleViewAllClick = (e) => {
+    if (!isAuth) {
+      e.preventDefault();
+      navigate("/login");
+    }
+  };
   return (
     <>
       <div className="container mx-auto mb-6 p-4">
@@ -79,13 +96,14 @@ const StrapiData = ({ fetchedQuery }) => {
       <div className="container mx-auto mb-6">
         <div className="upperHeading flex justify-between items-center my-[30px] max-[500px]:flex-col">
           <h1 className="uppercase text-[1.5em] text-zinc-700 font-medium tracking-[0.2em] tracking-normal-[2.5em] px-[45px] max-[500px]:px-0 max-[500px]:text-2xl max-[500px]:text-center">
-            {pathname === "/home" ? "Trending Products" : "GRAND GLOBAL BRANDS"}
+            {isAuth ? " GRAND GLOBAL BRANDS" : "Trending Products"}
           </h1>
 
-          {pathname === "/home" && (
+          {pathname === "/" && (
             <Link
               to="/listing"
               className="text-blue-700 font-semibold hover:underline"
+              onClick={handleViewAllClick}
             >
               View All Collection
             </Link>
@@ -143,28 +161,28 @@ const StrapiData = ({ fetchedQuery }) => {
             ) : (
               <>
                 <div className="bg-white rounded-lg cursor-pointer w-[100%] flex justify-center flex-col items-center">
-                  <div className="h-[300px] w-[270px] bg-slate-200 animate-pulse rounded-lg"></div>
+                  <div className="h-[250px] w-[270px] bg-slate-200 animate-pulse rounded-lg"></div>
                   <div className="h-[30px] w-[100px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
                   <div className="h-[30px] w-[260px] bg-slate-200 animate-pulse mt-2"></div>
                   <div className="h-[30px] w-[80px] bg-slate-200 animate-pulse mt-2"></div>
                   <div className="h-[30px] w-[260px] bg-slate-200 animate-pulse mt-2"></div>
                 </div>
                 <div className="bg-white rounded-lg cursor-pointer w-[100%] flex justify-center flex-col items-center">
-                  <div className="h-[300px] w-[270px] bg-slate-200 animate-pulse rounded-lg"></div>
+                  <div className="h-[250px] w-[270px] bg-slate-200 animate-pulse rounded-lg"></div>
                   <div className="h-[30px] w-[100px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
                   <div className="h-[30px] w-[260px] bg-slate-200 animate-pulse mt-2"></div>
                   <div className="h-[30px] w-[80px] bg-slate-200 animate-pulse mt-2"></div>
                   <div className="h-[30px] w-[260px] bg-slate-200 animate-pulse mt-2"></div>
                 </div>
                 <div className="bg-white rounded-lg cursor-pointer w-[100%] flex justify-center flex-col items-center">
-                  <div className="h-[300px] w-[270px] bg-slate-200 animate-pulse rounded-lg"></div>
+                  <div className="h-[250px] w-[270px] bg-slate-200 animate-pulse rounded-lg"></div>
                   <div className="h-[30px] w-[100px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
                   <div className="h-[30px] w-[260px] bg-slate-200 animate-pulse mt-2"></div>
                   <div className="h-[30px] w-[80px] bg-slate-200 animate-pulse mt-2"></div>
                   <div className="h-[30px] w-[260px] bg-slate-200 animate-pulse mt-2"></div>
                 </div>
                 <div className="bg-white rounded-lg cursor-pointer w-[100%] flex justify-center flex-col items-center">
-                  <div className="h-[300px] w-[270px] bg-slate-200 animate-pulse rounded-lg"></div>
+                  <div className="h-[250px] w-[270px] bg-slate-200 animate-pulse rounded-lg"></div>
                   <div className="h-[30px] w-[100px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
                   <div className="h-[30px] w-[260px] bg-slate-200 animate-pulse mt-2"></div>
                   <div className="h-[30px] w-[80px] bg-slate-200 animate-pulse mt-2"></div>

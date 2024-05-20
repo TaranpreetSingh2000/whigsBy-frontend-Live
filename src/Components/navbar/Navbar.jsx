@@ -121,23 +121,13 @@ const Navbar = () => {
       <nav className="bg-white w-full z-20 top-0 start-0 border-b border-gray-200">
         <div className="flex flex-wrap items-center justify-between mx-auto p-2.5">
           <div>
-            {isAuth ? (
-              <Link to="/home">
-                <img
-                  src={logo}
-                  className="w-auto h-[80px] cursor-pointer"
-                  alt="Logo"
-                />
-              </Link>
-            ) : (
-              <Link to="/">
-                <img
-                  src={logo}
-                  className="w-auto h-[80px] cursor-pointer"
-                  alt="Logo"
-                />
-              </Link>
-            )}
+            <Link to="/">
+              <img
+                src={logo}
+                className="w-auto h-[80px] cursor-pointer"
+                alt="Logo"
+              />
+            </Link>
           </div>
 
           <div
@@ -247,7 +237,7 @@ const Navbar = () => {
                         {isAuth ? (
                           <a
                             href="#"
-                            className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none"
+                            className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-black hover:bg-zinc-200/60 "
                             onClick={handleLogout}
                           >
                             Logout
@@ -274,7 +264,7 @@ const Navbar = () => {
                 >
                   <BsCart2 className="text-2xl cursor-pointer" />
                   <span className="font-semibold text-md cursor-pointer absolute top-[2.1rem] right-[6.2rem]">
-                    <sup className="border border-orange-600 rounded-3xl p-[0.6px] px-[5px] bg-orange-600 text-white">
+                    <sup className="border border-[#23356a] rounded-3xl p-[0.6px] px-[5px] bg-[#23356a] text-white">
                       {isAuth || isAdminAuth ? cart?.length : 0}
                     </sup>
                   </span>
