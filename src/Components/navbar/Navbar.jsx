@@ -209,7 +209,7 @@ const Navbar = () => {
                       <li>
                         <a
                           href="#"
-                          className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                          className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white"
                           onClick={toggleMenu}
                         >
                           My Profile
@@ -218,7 +218,7 @@ const Navbar = () => {
 
                       {isAdminAuth ? (
                         <a
-                          className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 cursor-pointer"
+                          className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white  cursor-pointer"
                           onClick={handleAdminLogout}
                         >
                           Logged out Admin
@@ -226,7 +226,7 @@ const Navbar = () => {
                       ) : (
                         <Link
                           to="/admin"
-                          className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 cursor-pointer"
+                          className="block px-4 w-full whitespace-nowrap bg-white py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white cursor-pointer"
                           onClick={toggleMenu}
                         >
                           Login Admin
@@ -236,7 +236,7 @@ const Navbar = () => {
                       <li>
                         <a
                           href="#"
-                          className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                          className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white"
                           onClick={toggleMenu}
                         >
                           Settings
