@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "../authStyle/Auth.module.css";
 import { toast } from "react-toastify";
@@ -17,6 +17,10 @@ const Login = () => {
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   });
 
   const handleChange = (e) => {

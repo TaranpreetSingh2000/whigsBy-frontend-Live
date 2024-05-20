@@ -14,7 +14,7 @@ const Cart = () => {
     } else {
       setCart([]);
     }
-  }, [email, cart]);
+  }, [email]);
 
   const getCartItem = () => {
     getUserCartItems(email).then((res) => {

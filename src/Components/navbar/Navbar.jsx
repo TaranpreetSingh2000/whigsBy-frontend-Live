@@ -31,11 +31,8 @@ const Navbar = () => {
       getCartItem();
       getWishlistItem();
       setUser(name);
-    } else {
-      setCart([]);
-      setWistlist([]);
     }
-  }, [email]);
+  }, [email, cart, wishlist]);
 
   const getCartItem = () => {
     getUserCartItems(email).then((res) => {
