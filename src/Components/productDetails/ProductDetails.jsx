@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { json, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { BallTriangle } from "react-loader-spinner";
 import { BsCart2 } from "react-icons/bs";
@@ -7,7 +7,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Breadcrumb from "../breadcrumb/Breadcrumb";
 import {
   getProductsByCategories,
-} from "../../../_utils/GlobalApi";
+} from "../../_utils/GlobalApi";
 import "react-toastify/dist/ReactToastify.css";
 import CategoryProducts from "./CategoryProducts";
 import useCart from "../hooks/useCart";

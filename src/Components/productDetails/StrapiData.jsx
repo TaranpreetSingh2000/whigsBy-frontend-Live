@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   getAllProducts,
   getProductsSearchCategory,
-} from "../../../_utils/GlobalApi";
+} from "../../_utils/GlobalApi";
 import { CgSearch } from "react-icons/cg";
 import { CartContext } from "../../_context/CartContext";
 

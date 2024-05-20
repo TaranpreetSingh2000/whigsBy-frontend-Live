@@ -12,7 +12,7 @@ import Cart from "../cart/Cart";
 import {
   getUserCartItems,
   getUserWishlistItem,
-} from "../../../_utils/GlobalApi";
+} from "../../_utils/GlobalApi";
 import Cookies from 'js-cookie'
 
 

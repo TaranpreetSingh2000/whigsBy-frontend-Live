@@ -4,14 +4,13 @@ import {
   getCategories,
   getProductsPriceFilter,
   getProductsRatingFilter,
-} from "../../../_utils/GlobalApi";
-import { RxCross1 } from "react-icons/rx";
+} from "../../_utils/GlobalApi";
 import Select from "react-select";
 import {
   PRICE_RANGE_MIN,
   PRICE_RANGE_MAX,
   RATING_FILTER,
-} from "../../../_utils/select.constants";
+} from "../../_utils/select.constants";
 import { CartContext } from "../../_context/CartContext";
 
 const FilterProducts = ({ fetchCategory }) => {

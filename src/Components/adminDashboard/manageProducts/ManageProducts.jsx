@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllProducts } from "../../../../_utils/GlobalApi";
+import { getAllProducts } from "../../../_utils/GlobalApi";
 import { ClipLoader } from "react-spinners";
 
 const ManageProducts = () => {

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import StrapiData from "../productDetails/StrapiData";
 import FilterProducts from "../filter/FilterProducts";
-import { getProductsSearchCategory } from "../../../_utils/GlobalApi";
 
 const ProductsListing = () => {
-  const [data, setData] = useState({});
   const [category, setCategory] = useState("");
 
   useEffect(() => {

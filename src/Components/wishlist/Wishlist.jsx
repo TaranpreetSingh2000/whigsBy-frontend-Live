@@ -6,7 +6,7 @@ import {
   deleteWishlistItem,
   getUserWishlistItem,
   addtoCart,
-} from "../../../_utils/GlobalApi";
+} from "../../_utils/GlobalApi";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import wishlistIcon from "../../assets/wishlist.png";

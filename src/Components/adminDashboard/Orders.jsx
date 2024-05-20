@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, {  useContext } from "react";
 import { CartContext } from "../../_context/CartContext";
 import { TiTick } from "react-icons/ti";
 

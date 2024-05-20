@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../_context/CartContext";
-import { deleteCartItems, getUserCartItems } from "../../_utils/GlobalApi";
+import { deleteCartItems, getUserCartItems } from "../_utils/GlobalApi";
 import { Link, useNavigate } from "react-router-dom";
 import emptyCart from "../assets/emptycart.webp";
 import { ToastContainer, toast } from "react-toastify";

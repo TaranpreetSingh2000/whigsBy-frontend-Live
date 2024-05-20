@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "../authStyle/Auth.module.css";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";

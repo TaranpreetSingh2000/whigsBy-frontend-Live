@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { CartContext } from "../../_context/CartContext";
 import { Link } from "react-router-dom";
-import { getUserCartItems } from "../../../_utils/GlobalApi";
+import { getUserCartItems } from "../../_utils/GlobalApi";
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);

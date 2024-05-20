@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import React from "react";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 import { Link, Outlet } from "react-router-dom";
 
 const AdminDashboard = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
-import { getCustomerLoginId } from "../../../_utils/GlobalApi";
+import { getCustomerLoginId } from "../../_utils/GlobalApi";
 
 const Customers = () => {
   const [data, setData] = useState(new Set([]));

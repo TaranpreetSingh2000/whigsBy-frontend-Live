@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getProductsByCategories } from "../../../_utils/GlobalApi";
+import { getProductsByCategories } from "../../_utils/GlobalApi";
 import { BallTriangle } from "react-loader-spinner";
 
 const ShopCategoriesDetails = () => {

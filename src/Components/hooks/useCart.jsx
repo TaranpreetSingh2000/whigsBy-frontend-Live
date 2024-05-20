@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { CartContext } from "../../_context/CartContext";
-import { addtoCart } from "../../../_utils/GlobalApi";
+import { addtoCart } from "../../_utils/GlobalApi";
 import { toast } from "react-toastify";
 
 const useCart = () => {
