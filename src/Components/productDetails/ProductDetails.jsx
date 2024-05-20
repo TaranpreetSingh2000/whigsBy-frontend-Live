@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { BallTriangle } from "react-loader-spinner";
@@ -23,7 +23,6 @@ const ProductDetails = () => {
   const fetchWishlist = useWishlist();
   const [isAuth, setIsAuth] = useState(false);
   const [filterdata, setFilterData] = useState({});
-  const [showCards, setShowCards] = useState(false);
   const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [categoryDetails, setCategoryDetails] = useState("");
@@ -35,6 +34,18 @@ const ProductDetails = () => {
   );
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    setFilterData(response);
+    if (response?.data?.data?.attributes?.category) {
+      getProductsByCategories(response.data.data.attributes.category).then(
+        (res) => {
+          setCategoryDetails(res);
+        }
+      );
+    }
+  },[response]);
+
+  useEffect(() => {
     const isLogin = Cookies.get("token");
     if (isLogin) {
       setIsAuth(true);
@@ -43,12 +54,6 @@ const ProductDetails = () => {
     }
   }, [isAuth]);
 
-  const getCateogoryProducts = (category) => {
-    getProductsByCategories(category).then((res) => {
-      window.scrollTo(0, 0);
-      setCategoryDetails(res);
-    });
-  };
   useEffect(() => {
     let isWishlistItem = false;
     let isCartItem = false;
@@ -70,21 +75,7 @@ const ProductDetails = () => {
     }
   }, [CartItems, WishlistItems, isAddedToCart, isAddedToWishlist]);
 
-  useEffect(() => {
-    setFilterData(response);
-    getCateogoryProducts(response?.data?.data?.attributes?.category);
-  }, [response]);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      window.scrollTo(0, 0);
-      setShowCards(true);
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
-  if (loading || !showCards) {
+  if (loading) {
     return (
       <div className="flex justify-center items-center h-[80vh] p-5">
         <BallTriangle
