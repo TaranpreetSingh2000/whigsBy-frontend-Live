@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import logo from "../../assets/logo.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
