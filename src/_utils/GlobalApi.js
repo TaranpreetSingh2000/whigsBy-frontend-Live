@@ -8,8 +8,8 @@ const axiosClient = axios.create({
   },
 });
 
-const getAllProducts = () =>
-  axiosClient.get("/products?populate=* &pagination[limit]=100");
+const getAllProducts = async () =>
+  await axiosClient.get("/products?populate=* &pagination[limit]=25");
 
 const getProductsById = (id) =>
   axiosClient.get("/products/" + id + "?populate=* &pagination[limit]=100");
