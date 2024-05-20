@@ -15,12 +15,6 @@ const Wishlist = () => {
   const email = localStorage.getItem("Email");
   const WishlistItems = JSON.parse(localStorage.getItem("Wishlist"));
 
-  useEffect(() => {
-    if (email) {
-      getWishlistItem();
-    }
-  }, [email, wishlist]);
-
   const handleDeleteWishlistItems = (id) => {
     deleteWishlistItem(id).then((res) => {
       toast.success("Product Removed from wishlist ");
@@ -151,7 +145,7 @@ const Wishlist = () => {
               easily move them to the bag.
             </p>
             <Link
-              to="/home"
+              to="/"
               className="uppercase text-blue-800 border border-blue-700 p-4 py-3 px-5 font-semibold font-sans"
             >
               Continue shopping

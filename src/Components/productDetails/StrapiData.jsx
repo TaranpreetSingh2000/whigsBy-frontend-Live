@@ -114,7 +114,7 @@ const StrapiData = ({ fetchedQuery }) => {
             No products Found
           </p>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 cursor-pointer p-3 max-[460px]:grid-cols-1">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 cursor-pointer p-3 max-[460px]:grid-cols-2">
             {data.data ? (
               data.data.data.map((product) => (
                 <Link key={product.id} to={`/productDetails/${product.id}`}>
@@ -132,7 +132,7 @@ const StrapiData = ({ fetchedQuery }) => {
                       )}
                     </div>
 
-                    <div className="flex flex-col mt-2 p-2">
+                    <div className="flex flex-col mt-2 p-2 max-[460px]:text-sm">
                       <p className="text-md font-semibold">
                         {product?.attributes?.title.split(" ")[0]}
                       </p>
@@ -142,16 +142,16 @@ const StrapiData = ({ fetchedQuery }) => {
                     </div>
 
                     <div className="mt-1 flex items-baseline gap-2">
-                      <p className="text-black text-md py-0.5 font-semibold font-[Arial]">
+                      <p className="text-black text-md py-0.5 font-semibold font-[Arial] max-[460px]:text-sm">
                         ₹{product.attributes.price}
                       </p>
                       <span className="text-gray-800 mb-2 text-sm">
-                        M.R.P: ₹
+                        ₹
                         <span className="line-through">
                           {product?.attributes.mrp}
                         </span>
                       </span>
-                      <span className="text-orange-500 font-semibold mb-2 text-md font-[sans-serif] tracking-wide">
+                      <span className="text-orange-500 font-semibold mb-2 text-md font-[sans-serif] tracking-wide max-[460px]:text-sm">
                         {product?.attributes.discount}% off
                       </span>
                     </div>

@@ -19,16 +19,21 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post(
-      "https://whigsby-backend-live.onrender.com/api/users",
-      registerData
-    );
 
-    if (response.status === 201) {
-      toast.success(response.data.message);
-      setTimeout(() => {
-        navigate("/login");
-      }, 3000);
+    try {
+      const response = await axios.post(
+        "https://whigsby-backend-live.onrender.com/api/users",
+        registerData
+      );
+
+      if (response.status === 201) {
+        toast.success(response.data.message);
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
+      }
+    } catch (error) {
+      toast.error(response.data.message);
     }
   };
 
