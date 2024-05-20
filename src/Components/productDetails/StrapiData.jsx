@@ -7,6 +7,7 @@ import {
 import { CgSearch } from "react-icons/cg";
 import { CartContext } from "../../_context/CartContext";
 import Cookies from "js-cookie";
+import { FaArrowRight } from "react-icons/fa";
 
 const StrapiData = ({ fetchedQuery }) => {
   const location = useLocation();
@@ -94,19 +95,22 @@ const StrapiData = ({ fetchedQuery }) => {
       </div>
 
       <div className="container mx-auto mb-6">
-        <div className="upperHeading flex justify-between items-center my-[30px] max-[500px]:flex-col">
-          <h1 className="uppercase text-[1.5em] text-zinc-700 font-medium tracking-[0.2em] tracking-normal-[2.5em] px-[45px] max-[500px]:px-0 max-[500px]:text-2xl max-[500px]:text-center">
+        <div className="upperHeading flex justify-between items-center my-[30px] max-[500px]:flex-col px-[45px]">
+          <h1 className="uppercase text-[1.5em] text-zinc-700 font-medium tracking-[0.2em] tracking-normal-[2.5em] max-[500px]:px-0 max-[500px]:text-2xl max-[500px]:text-center">
             {isAuth ? " GRAND GLOBAL BRANDS" : "Trending Products"}
           </h1>
 
           {pathname === "/" && (
-            <Link
-              to="/listing"
-              className="text-blue-700 font-semibold hover:underline"
-              onClick={handleViewAllClick}
-            >
-              View All Collection
-            </Link>
+            <div className="flex items-end gap-2">
+              <Link
+                to="/listing"
+                className="text-[#1f3167] text-[14px] font-bold hover:underline"
+                onClick={handleViewAllClick}
+              >
+                View All Collection
+              </Link>
+              <FaArrowRight className="text-lg text-[#1f3167]" />
+            </div>
           )}
         </div>
         {data.data && data.data.data.length === 0 ? (
