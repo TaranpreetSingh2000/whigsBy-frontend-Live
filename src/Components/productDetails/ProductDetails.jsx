@@ -43,7 +43,7 @@ const ProductDetails = () => {
         }
       );
     }
-  },[response]);
+  }, [response]);
 
   useEffect(() => {
     const isLogin = Cookies.get("token");
@@ -73,7 +73,7 @@ const ProductDetails = () => {
       setIsAddedToWishlist(true);
       setIsAddedToCart(true);
     }
-  }, [CartItems, WishlistItems, isAddedToCart, isAddedToWishlist]);
+  }, [CartItems, WishlistItems, isAddedToCart, productId, isAddedToWishlist]);
 
   if (loading) {
     return (
