@@ -34,6 +34,7 @@ import CategoriesPage from "./Components/category/CategoriesPage.jsx";
 import { ToastContainer } from "react-toastify";
 import Home from "./Components/home/Home.jsx";
 import ProductsListing from "./Components/ProductsListing/ProductsListing.jsx";
+import Profile from "./Components/profile/Profile.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
       <Route path="" element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="signup" element={<Signup />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="about" element={<AboutUs />} />
         <Route path="category" element={<CategoriesPage />} />
         <Route path="login" element={<Login />} />

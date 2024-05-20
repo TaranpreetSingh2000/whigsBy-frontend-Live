@@ -116,7 +116,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-white w-full z-20 top-0 start-0 border-b border-gray-200">
-        <div className="flex flex-wrap items-center justify-between mx-auto p-2.5">
+        <div className="flex flex-wrap items-center justify-between mx-auto p-2.5 max-[365px]:flex-col max-[365px]:items-center max-[365px]:justify-center">
           <div>
             <Link to="/">
               <img
@@ -133,21 +133,12 @@ const Navbar = () => {
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
-                {isAuth ? (
-                  <Link
-                    to="/home"
-                    className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                  >
-                    Home
-                  </Link>
-                ) : (
-                  <Link
-                    to="/"
-                    className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                  >
-                    Home
-                  </Link>
-                )}
+                <Link
+                  to="/"
+                  className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                >
+                  Home
+                </Link>
               </li>
               <li>
                 <Link
@@ -194,13 +185,13 @@ const Navbar = () => {
                   {isMenuOpen && (
                     <ul className="absolute text-black z-[1000] float-left m-0 w-[150px] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark right-0 mt-2 h-30">
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          to="/profile"
                           className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-black hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none"
                           onClick={toggleMenu}
                         >
                           My Profile
-                        </a>
+                        </Link>
                       </li>
 
                       {isAdminAuth ? (
@@ -219,16 +210,6 @@ const Navbar = () => {
                           Login Admin
                         </Link>
                       )}
-
-                      <li>
-                        <a
-                          href="#"
-                          className="block w-full whitespace-nowrap bg-white px-4 py-2 text-md font-normal text-black hover:bg-zinc-200/60 "
-                          onClick={toggleMenu}
-                        >
-                          Settings
-                        </a>
-                      </li>
 
                       <li>
                         {isAuth ? (
@@ -254,16 +235,14 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <div className="flex gap-4 justify-center items-end cursor-pointer  ">
+              <div className="flex gap-4 justify-center items-end cursor-pointer">
                 <div
-                  className="flex items-center"
+                  className="flex items-center relative"
                   onClick={() => setOpenCart(!openCart)}
                 >
-                  <BsCart2 className="text-2xl cursor-pointer" />
-                  <span className="font-semibold text-md cursor-pointer absolute top-[2.1rem] right-[6.2rem]">
-                    <sup className="border border-[#23356a] rounded-3xl p-[0.6px] px-[5px] bg-[#23356a] text-white">
-                      {isAuth || isAdminAuth ? cart?.length : 0}
-                    </sup>
+                  <BsCart2 className="text-[25px]" />
+                  <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-red-600 text-white text-sm px-[6px] py-[0.4px]">
+                    {cart?.length}
                   </span>
                 </div>
 
