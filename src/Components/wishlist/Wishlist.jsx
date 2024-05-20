@@ -15,11 +15,11 @@ const Wishlist = () => {
   const email = localStorage.getItem("Email");
   const WishlistItems = JSON.parse(localStorage.getItem("Wishlist"));
 
-  useEffect(()=>{
-    if(email){
+  useEffect(() => {
+    if (email) {
       getWishlistItem();
     }
-  },[email, wishlist])
+  }, [email, wishlist]);
 
   const handleDeleteWishlistItems = (id) => {
     deleteWishlistItem(id).then((res) => {
@@ -77,7 +77,6 @@ const Wishlist = () => {
                 <div
                   className="border border-gray-100 rounded-md text-center"
                   key={index}
-                  // data-id={item.id}
                 >
                   <div className="flex relative">
                     <img
@@ -147,7 +146,7 @@ const Wishlist = () => {
               Your Wishlist is empty
             </p>
             <img src={wishlistIcon} className="w-[100px]" alt="" />
-            <p className="text-gray-500 text-lg w-[35%] text-center">
+            <p className="text-gray-500 text-lg w-[100%] text-center">
               Add items that you like to your wishlist. Review them anytime and
               easily move them to the bag.
             </p>
