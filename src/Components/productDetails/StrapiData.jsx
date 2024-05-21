@@ -95,9 +95,9 @@ const StrapiData = ({ fetchedQuery }) => {
       </div>
 
       <div className="container mx-auto mb-6">
-        <div className="upperHeading flex justify-between items-center my-[30px] max-[500px]:flex-col px-[45px]">
-          <h1 className="uppercase text-[1.5em] text-zinc-700 font-medium tracking-[0.2em] tracking-normal-[2.5em] max-[500px]:px-0 max-[500px]:text-2xl max-[500px]:text-center">
-            {isAuth ? " GRAND GLOBAL BRANDS" : "Trending Products"}
+        <div className="upperHeading flex justify-between items-center my-[30px] max-[500px]:flex-col px-[45px] max-[500px]:gap-4">
+          <h1 className="uppercase text-[1.3em] text-zinc-700 font-medium tracking-[0.2em] tracking-normal-[2.5em] max-[500px]:px-0 max-[500px]:text-xl max-[500px]:text-center">
+            {pathname !== "/" ? " GRAND GLOBAL BRANDS" : "Trending Products"}
           </h1>
 
           {pathname === "/" && (
