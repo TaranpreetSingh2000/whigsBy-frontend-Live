@@ -75,7 +75,7 @@ const router = createBrowserRouter(
         <Route
           path="about"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <AboutUs />
             </Suspense>
           }
@@ -83,7 +83,7 @@ const router = createBrowserRouter(
         <Route
           path="category"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <CategoriesPage />
             </Suspense>
           }
@@ -93,7 +93,7 @@ const router = createBrowserRouter(
         <Route
           path="listing"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <Protected Component={Dashboard} />
             </Suspense>
           }
@@ -101,7 +101,7 @@ const router = createBrowserRouter(
         <Route
           path="productDetails/:productId"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <ProductDetails />
             </Suspense>
           }
@@ -109,7 +109,7 @@ const router = createBrowserRouter(
         <Route
           path="/categoryDetails/:categoryname"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <Protected Component={ShopCategoriesDetails} />
             </Suspense>
           }
@@ -117,7 +117,7 @@ const router = createBrowserRouter(
         <Route
           path="/categoryDetails/:productId"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <Protected Component={ProductDetails} />
             </Suspense>
           }
@@ -125,7 +125,7 @@ const router = createBrowserRouter(
         <Route
           path="/cart"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <Cart />
             </Suspense>
           }
@@ -133,7 +133,7 @@ const router = createBrowserRouter(
         <Route
           path="/wishlist"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <Protected Component={Wishlist} />
             </Suspense>
           }
@@ -141,7 +141,7 @@ const router = createBrowserRouter(
         <Route
           path="checkout"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <Protected Component={Checkout} />
             </Suspense>
           }
@@ -149,7 +149,7 @@ const router = createBrowserRouter(
         <Route
           path="/page"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <Protected Component={Page} />
             </Suspense>
           }
@@ -157,7 +157,7 @@ const router = createBrowserRouter(
         <Route
           path="/checkout/success"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <Protected Component={SuccessPopup} />
             </Suspense>
           }
@@ -165,7 +165,7 @@ const router = createBrowserRouter(
         <Route
           path="admindashboard"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <AdminProtected Component={AdminDashboard} />
             </Suspense>
           }
@@ -173,7 +173,9 @@ const router = createBrowserRouter(
           <Route
             path="manageproducts"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div className="text-center">Loading...</div>}
+              >
                 <ManageProducts />
               </Suspense>
             }
@@ -181,7 +183,9 @@ const router = createBrowserRouter(
           <Route
             path="user"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div className="text-center">Loading...</div>}
+              >
                 <Users />
               </Suspense>
             }
@@ -189,7 +193,9 @@ const router = createBrowserRouter(
           <Route
             path="admincart"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div className="text-center">Loading...</div>}
+              >
                 <AdminCart />
               </Suspense>
             }
@@ -197,7 +203,9 @@ const router = createBrowserRouter(
           <Route
             path="customer"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div className="text-center">Loading...</div>}
+              >
                 <Customers />
               </Suspense>
             }
@@ -205,7 +213,9 @@ const router = createBrowserRouter(
           <Route
             path="orders"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div className="text-center">Loading...</div>}
+              >
                 <Orders />
               </Suspense>
             }
@@ -214,7 +224,7 @@ const router = createBrowserRouter(
         <Route
           path="contact"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
               <Contact />
             </Suspense>
           }
