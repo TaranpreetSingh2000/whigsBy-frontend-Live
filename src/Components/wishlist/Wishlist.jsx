@@ -16,6 +16,10 @@ const Wishlist = () => {
   const email = localStorage.getItem("Email");
   const WishlistItems = JSON.parse(localStorage.getItem("Wishlist"));
 
+  useEffect(() => {
+    getWishlistItem();
+  }, [wishlist]);
+
   const handleDeleteWishlistItems = (id) => {
     deleteWishlistItem(id).then((res) => {
       toast.success("Product Removed from wishlist ");
