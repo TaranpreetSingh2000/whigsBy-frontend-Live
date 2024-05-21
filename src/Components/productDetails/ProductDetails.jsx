@@ -155,22 +155,24 @@ const ProductDetails = () => {
                 {filterdata?.data?.data?.attributes?.offer}
               </button>
 
-              <h2 className="text-black flex items-center gap-2">
-                <svg
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  class="text-green-500 text-[22px]"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-                  <path d="m9 12 2 2 4-4"></path>
-                </svg>
-                Eligible for Instant Delivery
-              </h2>
+              {filterdata?.data?.data?.attributes?.delivery && (
+                <h2 className="text-black flex items-center gap-2">
+                  <svg
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    class="text-green-500 text-[22px]"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                  Eligible for Instant Delivery
+                </h2>
+              )}
             </div>
 
             <div className="flex items-center gap-1 my-1">
