@@ -1,4 +1,6 @@
 import React, { useState, lazy, Suspense } from "react";
+import { ClipLoader } from "react-spinners";
+
 import {
   Route,
   BrowserRouter as Router,
@@ -67,7 +69,13 @@ const router = createBrowserRouter(
         <Route
           path="profile"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Profile />
             </Suspense>
           }
@@ -75,7 +83,13 @@ const router = createBrowserRouter(
         <Route
           path="about"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <AboutUs />
             </Suspense>
           }
@@ -83,7 +97,13 @@ const router = createBrowserRouter(
         <Route
           path="category"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <CategoriesPage />
             </Suspense>
           }
@@ -93,7 +113,13 @@ const router = createBrowserRouter(
         <Route
           path="listing"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Protected Component={Dashboard} />
             </Suspense>
           }
@@ -101,7 +127,13 @@ const router = createBrowserRouter(
         <Route
           path="productDetails/:productId"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <ProductDetails />
             </Suspense>
           }
@@ -109,7 +141,13 @@ const router = createBrowserRouter(
         <Route
           path="/categoryDetails/:categoryname"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Protected Component={ShopCategoriesDetails} />
             </Suspense>
           }
@@ -117,7 +155,13 @@ const router = createBrowserRouter(
         <Route
           path="/categoryDetails/:productId"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Protected Component={ProductDetails} />
             </Suspense>
           }
@@ -125,7 +169,13 @@ const router = createBrowserRouter(
         <Route
           path="/cart"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Cart />
             </Suspense>
           }
@@ -133,7 +183,13 @@ const router = createBrowserRouter(
         <Route
           path="/wishlist"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Protected Component={Wishlist} />
             </Suspense>
           }
@@ -141,7 +197,13 @@ const router = createBrowserRouter(
         <Route
           path="checkout"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Protected Component={Checkout} />
             </Suspense>
           }
@@ -149,7 +211,13 @@ const router = createBrowserRouter(
         <Route
           path="/page"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Protected Component={Page} />
             </Suspense>
           }
@@ -157,7 +225,13 @@ const router = createBrowserRouter(
         <Route
           path="/checkout/success"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Protected Component={SuccessPopup} />
             </Suspense>
           }
@@ -165,7 +239,13 @@ const router = createBrowserRouter(
         <Route
           path="admindashboard"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <AdminProtected Component={AdminDashboard} />
             </Suspense>
           }
@@ -174,7 +254,11 @@ const router = createBrowserRouter(
             path="manageproducts"
             element={
               <Suspense
-                fallback={<div className="text-center">Loading...</div>}
+                fallback={
+                  <div className="flex justify-center items-center">
+                    <ClipLoader color="#36d7b7" className="my-2" />
+                  </div>
+                }
               >
                 <ManageProducts />
               </Suspense>
@@ -184,7 +268,11 @@ const router = createBrowserRouter(
             path="user"
             element={
               <Suspense
-                fallback={<div className="text-center">Loading...</div>}
+                fallback={
+                  <div className="flex justify-center items-center">
+                    <ClipLoader color="#36d7b7" className="my-2" />
+                  </div>
+                }
               >
                 <Users />
               </Suspense>
@@ -194,7 +282,11 @@ const router = createBrowserRouter(
             path="admincart"
             element={
               <Suspense
-                fallback={<div className="text-center">Loading...</div>}
+                fallback={
+                  <div className="flex justify-center items-center">
+                    <ClipLoader color="#36d7b7" className="my-2" />
+                  </div>
+                }
               >
                 <AdminCart />
               </Suspense>
@@ -204,7 +296,11 @@ const router = createBrowserRouter(
             path="customer"
             element={
               <Suspense
-                fallback={<div className="text-center">Loading...</div>}
+                fallback={
+                  <div className="flex justify-center items-center">
+                    <ClipLoader color="#36d7b7" className="my-2" />
+                  </div>
+                }
               >
                 <Customers />
               </Suspense>
@@ -214,7 +310,11 @@ const router = createBrowserRouter(
             path="orders"
             element={
               <Suspense
-                fallback={<div className="text-center">Loading...</div>}
+                fallback={
+                  <div className="flex justify-center items-center">
+                    <ClipLoader color="#36d7b7" className="my-2" />
+                  </div>
+                }
               >
                 <Orders />
               </Suspense>
@@ -224,7 +324,13 @@ const router = createBrowserRouter(
         <Route
           path="contact"
           element={
-            <Suspense fallback={<div className="text-center">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center">
+                  <ClipLoader color="#36d7b7" className="my-2" />
+                </div>
+              }
+            >
               <Contact />
             </Suspense>
           }
