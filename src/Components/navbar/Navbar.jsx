@@ -266,10 +266,29 @@ const Navbar = () => {
           ) : (
             <div className="flex justify-center items-center">
               <Link
+                class="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
                 to="/login"
-                className="text-black shadow-md font-medium text-sm bg-white hover:bg-[#252e49] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#252e49] focus:ring-opacity-50 rounded-lg px-4 py-2 transition duration-300"
               >
-                Login
+                <span class="absolute -start-full transition-all group-hover:start-4">
+                  <svg
+                    class="size-5 rtl:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </span>
+
+                <span class="text-sm font-medium transition-all group-hover:ms-4">
+                  Login
+                </span>
               </Link>
             </div>
           )}
