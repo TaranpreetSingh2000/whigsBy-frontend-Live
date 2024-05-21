@@ -131,7 +131,6 @@ const ProductDetails = () => {
       navigate("/login");
     }
   };
-
   return (
     <>
       <div className="pt-4 px-6">
@@ -151,28 +150,41 @@ const ProductDetails = () => {
               {filterdata?.data?.data?.attributes?.title}
             </h2>
 
-            <div className="flex items-baseline gap-3">
-              <button className="text-white bg-red-700 text-left px-2 py-0.5 rounded-[4px] font-semibold mb-2 text-sm">
+            <div className="flex items-center gap-3 my-1">
+              <button className="text-white bg-red-700 text-left px-2 py-0.5 rounded-[4px] font-semibold text-sm">
                 {filterdata?.data?.data?.attributes?.offer}
               </button>
 
-              <span className=" bg-green-600 text-white px-2 py-1 text-sm rounded-tl-lg">
-                Instant Delivery
-              </span>
+              <h2 className="text-black flex items-center gap-2">
+                <svg
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  class="text-green-500 text-[22px]"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+                Eligible for Instant Delivery
+              </h2>
             </div>
 
-            <div className="flex items-center gap-1">
-              <span className="text-red-500 mb-2 text-2xl">
+            <div className="flex items-center gap-1 my-1">
+              <span className="text-red-500 mb-2 text-xl">
                 {filterdata?.data?.data?.attributes.discount}% off
               </span>
-              <p className="text-black mb-2 text-3xl">
-                <sup className="text-xl mt-[20px] leading-0">₹</sup>
+              <p className="text-black mb-2 text-2xl">
+                <sup className="text-lg mt-[20px] leading-0">₹</sup>
                 {filterdata?.data?.data?.attributes.price}
               </p>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="text-gray-500 mb-2 text-md font-serif">
+              <span className="text-gray-500 mb-2 text-md font-[Arial]">
                 M.R.P: ₹
                 <span className="line-through">
                   {filterdata?.data?.data?.attributes?.mrp}
@@ -180,12 +192,17 @@ const ProductDetails = () => {
               </span>
             </div>
 
-            <div className="flex gap-1">
+            <div className="flex gap-1 text-gray-500 text-md font-[Arial]">
+              Rating:
               <StarRating rating={filterdata?.data?.data?.attributes?.rating} />
             </div>
-            <p className="text-gray-600 mb-4 text-md">
-              {filterdata?.data?.data?.attributes?.category}
-            </p>
+
+            <div className="flex items-center gap-2 my-2 text-gray-500 mb-2 text-md font-[Arial]">
+              Category:
+              <p className="text-gray-500 text-md uppercase">
+                {filterdata?.data?.data?.attributes?.category}
+              </p>
+            </div>
 
             <div className="flex items-center">
               {isAddedToCart ? (
