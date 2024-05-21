@@ -131,7 +131,7 @@ const Navbar = () => {
             className="items-center justify-between hidden w-full md:flex md:w-auto"
             id="navbar-sticky"
           >
-            <ul className="text-white flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-black">
+            <ul className="text-black flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
               <li>
                 <Link
                   to="/"
