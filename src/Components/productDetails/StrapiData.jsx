@@ -122,7 +122,7 @@ const StrapiData = ({ fetchedQuery }) => {
             {data.data ? (
               data.data.data.map((product) => (
                 <Link key={product.id} to={`/productDetails/${product.id}`}>
-                  <div className="text-center bg-white rounded-lg h-[100%] flex flex-col items-center cursor-pointer hover:border hover:border-orange-200 hover:duration-500 ease-in-out">
+                  <div className="text-center bg-white rounded-lg h-[100%] flex flex-col items-center cursor-pointer hover:border hover:border-[#3d4c7b] hover:duration-500 ease-in-out">
                     <div className="relative">
                       <img
                         src={`${product.attributes.image.data[0].attributes.url}`}
