@@ -74,7 +74,7 @@ const Wishlist = () => {
             {wishlist.length > 0 &&
               wishlist.map((item, index) => (
                 <div
-                  className="border border-gray-100 rounded-md text-center"
+                  className="border border-gray-300 rounded-md text-center"
                   key={index}
                 >
                   <div className="flex relative">
@@ -109,8 +109,8 @@ const Wishlist = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="border-t border-gray-300 w-full flex items-center justify-center p-2">
-                      {/* {isAddedToCart ? (
+                    {/* <div className="border-t border-gray-300 w-full flex items-center justify-center p-2"> */}
+                    {/* {isAddedToCart ? (
                         <Link
                           to=""
                           className="text-green-800 font-semibold cursor-pointer w-full text-center"
@@ -125,16 +125,15 @@ const Wishlist = () => {
                             }}
                           ></i>
                         </Link> */}
-                      {/* ) : ( */}
-                      <Link
+                    {/* ) : ( */}
+                    {/* <Link
                         to=""
                         className="text-red-500 font-semibold cursor-pointer w-full text-center hover:text-red-600"
                         onClick={() => onAddToCartClick(item?.products?.id)}
                       >
                         ADD TO CART
                       </Link>
-                      {/* )} */}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               ))}

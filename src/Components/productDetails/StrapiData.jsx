@@ -118,7 +118,7 @@ const StrapiData = ({ fetchedQuery }) => {
             No products Found
           </p>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 cursor-pointer p-3 max-[460px]:grid-cols-2">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 cursor-pointer p-3 max-[460px]:grid-cols-2">
             {data.data ? (
               data.data.data.map((product) => (
                 <Link key={product.id} to={`/productDetails/${product.id}`}>
@@ -165,32 +165,39 @@ const StrapiData = ({ fetchedQuery }) => {
             ) : (
               <>
                 <div className="bg-white rounded-lg cursor-pointer flex justify-center flex-col items-center mx-5">
-                  <div className="h-[250px] w-[230px] bg-slate-200 animate-pulse rounded-lg max-[500px]:w-[160px] max-[500px]:h-[150px]"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                  <div className="h-[220px] w-[180px] bg-slate-200 animate-pulse rounded-lg max-[500px]:w-[160px] max-[500px]:h-[150px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
                 </div>
                 <div className="bg-white rounded-lg cursor-pointer w-[100%] flex justify-center flex-col items-center">
-                  <div className="h-[250px] w-[230px] bg-slate-200 animate-pulse rounded-lg max-[500px]:w-[160px] max-[500px]:h-[150px]"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                  <div className="h-[220px] w-[180px] bg-slate-200 animate-pulse rounded-lg max-[500px]:w-[160px] max-[500px]:h-[150px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
                 </div>
                 <div className="bg-white rounded-lg cursor-pointer w-[100%] flex justify-center flex-col items-center">
-                  <div className="h-[250px] w-[230px] bg-slate-200 animate-pulse rounded-lg max-[500px]:w-[160px] max-[500px]:h-[150px]"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                  <div className="h-[220px] w-[180px] bg-slate-200 animate-pulse rounded-lg max-[500px]:w-[160px] max-[500px]:h-[150px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
                 </div>
                 <div className="bg-white rounded-lg cursor-pointer w-[100%] flex justify-center flex-col items-center">
-                  <div className="h-[250px] w-[230px] bg-slate-200 animate-pulse rounded-lg max-[500px]:w-[160px] max-[500px]:h-[150px]"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2"></div>
-                  <div className="h-[30px] w-[230px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                  <div className="h-[220px] w-[180px] bg-slate-200 animate-pulse rounded-lg max-[500px]:w-[160px] max-[500px]:h-[150px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                </div>
+                <div className="bg-white rounded-lg cursor-pointer w-[100%] flex justify-center flex-col items-center">
+                  <div className="h-[220px] w-[180px] bg-slate-200 animate-pulse rounded-lg max-[500px]:w-[160px] max-[500px]:h-[150px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse flex justify-center mx-auto mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2"></div>
+                  <div className="h-[20px] w-[180px] bg-slate-200 animate-pulse mt-2 max-[500px]:w-[140px] max-[500px]:h-[30px]"></div>
                 </div>
               </>
             )}
