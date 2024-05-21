@@ -10,6 +10,7 @@ import {
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import wishlistIcon from "../../assets/wishlist.png";
+
 const Wishlist = () => {
   const { wishlist, setWistlist, cart, setCart } = useContext(CartContext);
   const email = localStorage.getItem("Email");

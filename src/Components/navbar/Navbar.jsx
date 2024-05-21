@@ -32,7 +32,7 @@ const Navbar = () => {
       getWishlistItem();
       setUser(name);
     }
-  }, [email, cart, wishlist]);
+  }, [email]);
 
   const getCartItem = () => {
     getUserCartItems(email).then((res) => {
